@@ -5,9 +5,11 @@ import org.example.cardapio.Lanche;
 
 import java.util.ArrayList;
 
+//Armazenar o item personalizado
 public class Pedido {
     private int numeroIdentificador;
     private String nomeCliente;
+    private boolean cancelado = false;
 
     private ArrayList<ItemCardapio> itens = new ArrayList<>();
 
@@ -47,5 +49,22 @@ public class Pedido {
             total += item.getPreco();
         }
         return total;
+    }
+
+    public void cancelar() {
+        this.cancelado = true;
+    }
+
+    public boolean isCancelado() {
+        return cancelado;
+    }
+
+    public boolean removerItem(int indice) {
+        if (indice < 0 || indice >= itens.size()) {
+            return false;
+        }
+
+        itens.remove(indice);
+        return true;
     }
 }

@@ -3,6 +3,10 @@ package org.example.cardapio;
 public class Lanche implements ItemCardapio {
     private String nome;
     private double preco;
+    private boolean queijo = true;
+    private boolean alface = true;
+    private boolean tomate = true;
+    private boolean cebola = true;
 
     public Lanche(String nome, double preco) {
         setNome(nome);
@@ -35,6 +39,36 @@ public class Lanche implements ItemCardapio {
     }
     @Override
     public String getDescricao() {
-        return nome;
+        String descricao = nome;
+
+        if(!cebola){
+            descricao += " sem cebola";
+        }
+        if(!tomate){
+            descricao += " sem tomate";
+        }
+        if(!alface){
+            descricao += " sem alface";
+        }
+        if(!queijo){
+            descricao += " sem queijo";
+        }
+        return descricao;
+    }
+
+    public void setQueijo(boolean queijo) {
+        this.queijo = queijo;
+    }
+
+    public void  setAlface(boolean alface) {
+        this.alface = alface;
+    }
+
+    public void  setTomate(boolean tomate) {
+        this.tomate = tomate;
+    }
+
+    public void  setCebola(boolean cebola) {
+        this.cebola = cebola;
     }
 }

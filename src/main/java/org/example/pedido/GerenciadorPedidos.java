@@ -1,7 +1,10 @@
 package org.example.pedido;
 
+import org.example.cardapio.ItemCardapio;
+
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class GerenciadorPedidos {
     private HashMap<Integer, Pedido> pedidos = new HashMap<>();
@@ -28,8 +31,22 @@ public class GerenciadorPedidos {
     public double calcularTotalDoDia(){
         double total = 0;
         for (Pedido pedido : pedidos.values()){
-            total += pedido.calcularTotal();
+            if(!pedido.isCancelado()){
+                total += pedido.calcularTotal();
+            }
         }
         return total;
+    }
+    public int contarCombinacoesUnicas() {
+        HashSet<String> combinacoes = new HashSet<>();
+        for (Pedido pedido : pedidos.values()){
+            if(!pedido.isCancelado()){
+                for (ItemCardapio item : pedido.getItens()){
+                    combinacoes.add(item.getDescricao());
+                }
+            }
+        }
+        return combinacoes.size();
+
     }
 }
