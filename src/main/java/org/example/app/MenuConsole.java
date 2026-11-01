@@ -37,8 +37,21 @@ public class MenuConsole {
         }
 
     public String lerNomeCliente() {
-        System.out.println("Digite o nome do cliente: ");;
-        return sc.nextLine();
+        while (true) {
+            try {
+                System.out.println("Digite o nome do cliente: ");
+                String nome = sc.nextLine();
+
+                if (nome == null || nome.trim().isEmpty()) {
+                    throw new IllegalArgumentException("O nome não pode ser vazio!");
+                }
+
+                return nome;
+
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
     public void exibirMensagem(String mensagem) {
         System.out.println(mensagem);

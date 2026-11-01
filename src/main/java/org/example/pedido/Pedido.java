@@ -38,7 +38,6 @@ public class Pedido {
         this.nomeCliente = nomeCliente;
     }
     public ArrayList<ItemCardapio> getItens(){
-
         return itens;
     }
 
