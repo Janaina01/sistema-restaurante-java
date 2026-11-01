@@ -19,7 +19,7 @@ public class PedidoTest {
     void deveCalcularTotalDoPedido(){
 
         Lanche burger = new Lanche("X-Burger", 16.00);
-        Lanche salada = new Lanche("X-Salada", 12.00);
+        Lanche salada = new Lanche("X-Salada", 18.00);
 
         pedido.adicionarItem(burger);
         pedido.adicionarItem(salada);

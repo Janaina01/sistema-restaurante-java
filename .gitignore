@@ -37,3 +37,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Configurações do IntelliJ IDEA
+.idea/
+*.iml
+
+# Arquivos gerados pelo Maven
+target/

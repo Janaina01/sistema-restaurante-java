@@ -56,6 +56,22 @@ public class Lanche implements ItemCardapio {
         return descricao;
     }
 
+    public boolean isQueijo() {
+        return queijo;
+    }
+
+    public boolean isAlface() {
+        return alface;
+    }
+
+    public boolean isTomate() {
+        return tomate;
+    }
+
+    public boolean isCebola() {
+        return cebola;
+    }
+
     public void setQueijo(boolean queijo) {
         this.queijo = queijo;
     }

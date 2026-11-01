@@ -49,4 +49,20 @@ public class GerenciadorPedidos {
         return combinacoes.size();
 
     }
+
+    public HashSet<String> listarCombinacoesUnicas() {
+        HashSet<String> combinacoes = new HashSet<>();
+
+        for (Pedido pedido : pedidos.values()) {
+            if (!pedido.isCancelado()) {
+                for (ItemCardapio item : pedido.getItens()) {
+                    combinacoes.add(item.getDescricao());
+                }
+            }
+        }
+
+        return combinacoes;
+    }
+
+
 }

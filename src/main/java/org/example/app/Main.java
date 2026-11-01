@@ -76,12 +76,16 @@ public class Main {
                         mc.exibirMensagem("Nenhum pedido registrado!");
                     } else {
                         for (Pedido p : restaurante.listarPedidos()) {
+
+                            String status = p.isCancelado() ? "CANCELADO" : "ATIVO";
+
                             mc.exibirMensagem(
                                     String.format(Locale.forLanguageTag("pt-BR"),
-                                            "Pedido #%d - %s - R$ %.2f",
+                                            "Pedido #%d - %s - R$ %.2f - %s",
                                             p.getNumero(),
                                             p.getNomeCliente(),
-                                            p.calcularTotal()
+                                            p.calcularTotal(),
+                                            status
                                     )
                             );
                         }
@@ -102,6 +106,10 @@ public class Main {
                             "Combinações únicas vendidas: "
                                     + restaurante.contarCombinacoesUnicas()
                     );
+
+                    for (String combinacao : restaurante.listarCombinacoesUnicas()) {
+                        mc.exibirMensagem("- " + combinacao);
+                    }
 
                     break;
 

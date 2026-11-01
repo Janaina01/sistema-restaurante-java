@@ -5,6 +5,7 @@ import org.example.pedido.GerenciadorPedidos;
 import org.example.pedido.Pedido;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 //Aplicar o Decorator correspondente
 public class RestauranteFacade {
@@ -115,6 +116,10 @@ public class RestauranteFacade {
     }
     public int contarCombinacoesUnicas() {
         return gerenciador.contarCombinacoesUnicas();
+    }
+
+    public HashSet<String> listarCombinacoesUnicas() {
+        return gerenciador.listarCombinacoesUnicas();
     }
 
 }
