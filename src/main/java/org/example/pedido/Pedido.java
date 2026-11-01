@@ -1,5 +1,6 @@
 package org.example.pedido;
 
+import org.example.cardapio.ItemCardapio;
 import org.example.cardapio.Lanche;
 
 import java.util.ArrayList;
@@ -8,11 +9,12 @@ public class Pedido {
     private int numeroIdentificador;
     private String nomeCliente;
 
-    private ArrayList<Lanche> itens = new ArrayList<>();
+    private ArrayList<ItemCardapio> itens = new ArrayList<>();
 
-    //Adiciona o lanche na lista itens
-    public void adicionarItem(Lanche lanche){
-        itens.add(lanche);
+    //Adiciona na lista itens
+    public void adicionarItem(ItemCardapio item){
+
+        itens.add(item);
     }
 
     public Pedido(int numeroIdentificador, String nomeCliente){
@@ -33,15 +35,16 @@ public class Pedido {
         }
         this.nomeCliente = nomeCliente;
     }
-    public ArrayList<Lanche> getItens(){
+    public ArrayList<ItemCardapio> getItens(){
+
         return itens;
     }
 
     //Percorre a lista de lanches e soma seus preços
     public double calcularTotal(){
         double total = 0;
-        for (Lanche lanche : itens) {
-            total += lanche.getPreco();
+        for (ItemCardapio item : itens) {
+            total += item.getPreco();
         }
         return total;
     }

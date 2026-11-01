@@ -1,6 +1,6 @@
 package org.example.cardapio;
 
-public class Lanche {
+public class Lanche implements ItemCardapio {
     private String nome;
     private double preco;
 
@@ -32,5 +32,9 @@ public class Lanche {
             throw new IllegalArgumentException("Preço inválido.");
         }
         this.preco = preco;
+    }
+    @Override
+    public String getDescricao() {
+        return nome;
     }
 }
