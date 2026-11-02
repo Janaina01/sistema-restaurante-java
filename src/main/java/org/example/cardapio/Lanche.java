@@ -41,18 +41,20 @@ public class Lanche implements ItemCardapio {
     public String getDescricao() {
         String descricao = nome;
 
-        if(!cebola){
-            descricao += " sem cebola";
-        }
-        if(!tomate){
-            descricao += " sem tomate";
+        if(!queijo){
+            descricao += " sem queijo";
         }
         if(!alface){
             descricao += " sem alface";
         }
-        if(!queijo){
-            descricao += " sem queijo";
+        if(!tomate){
+            descricao += " sem tomate";
         }
+        if(!cebola){
+            descricao += " sem cebola";
+        }
+
+
         return descricao;
     }
 

@@ -32,7 +32,7 @@ public class LancheTest {
         lanche.setTomate(false);
 
         assertEquals(
-                "X-Burger sem cebola sem tomate",
+                "X-Burger sem tomate sem cebola",
                 lanche.getDescricao()
         );
     }

@@ -110,4 +110,70 @@ public class MenuConsole {
         System.out.println("Digite o número do item que deseja remover:");
         return lerOpcao();
     }
+
+    public void exibirPedidoCriado(Pedido pedido) {
+        System.out.println(
+                "Pedido #" + pedido.getNumero() + " registrado com sucesso!"
+        );
+    }
+
+    public void exibirTotalPedido(double total) {
+        System.out.printf(
+                java.util.Locale.forLanguageTag("pt-BR"),
+                "Total do pedido: R$ %.2f%n",
+                total
+        );
+    }
+
+    public void exibirPedidosDoDia(java.util.Collection<Pedido> pedidos) {
+        System.out.println("=== PEDIDOS DO DIA ===");
+
+        if (pedidos.isEmpty()) {
+            System.out.println("Nenhum pedido registrado!");
+            return;
+        }
+
+        for (Pedido pedido : pedidos) {
+            String status = pedido.isCancelado() ? "CANCELADO" : "ATIVO";
+
+            System.out.printf(
+                    java.util.Locale.forLanguageTag("pt-BR"),
+                    "Pedido #%d - %s - R$ %.2f - %s%n",
+                    pedido.getNumero(),
+                    pedido.getNomeCliente(),
+                    pedido.calcularTotal(),
+                    status
+            );
+        }
+    }
+
+    public void exibirFechamentoDoDia(
+            double faturamento,
+            java.util.Set<String> combinacoes) {
+
+        System.out.println("=== FECHAMENTO DO DIA ===");
+
+        System.out.printf(
+                java.util.Locale.forLanguageTag("pt-BR"),
+                "Faturamento total: R$ %.2f%n",
+                faturamento
+        );
+
+        System.out.println(
+                "Combinações únicas vendidas: " + combinacoes.size()
+        );
+
+        for (String combinacao : combinacoes) {
+            System.out.println("- " + combinacao);
+        }
+    }
+
+    public void exibirItemAdicionado(ItemCardapio item) {
+        System.out.printf(
+                java.util.Locale.forLanguageTag("pt-BR"),
+                "Adicionado: %s - R$ %.2f%n",
+                item.getDescricao(),
+                item.getPreco()
+        );
+    }
 }

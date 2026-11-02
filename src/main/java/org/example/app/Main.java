@@ -1,12 +1,8 @@
 package org.example.app;
 
-import org.example.cardapio.ComBaconExtra;
-import org.example.cardapio.ComCheddar;
 import org.example.cardapio.ItemCardapio;
 import org.example.cardapio.Lanche;
 import org.example.pedido.Pedido;
-
-import java.util.Locale;
 
 //Controlar a repetição das escolhas
 public class Main {
@@ -28,7 +24,7 @@ public class Main {
                     String nomeCliente = mc.lerNomeCliente();
                     Pedido pedido = restaurante.criarPedido(nomeCliente);
 
-                    mc.exibirMensagem("Pedido #" + pedido.getNumero() + " registrado com sucesso!");
+                    mc.exibirPedidoCriado(pedido);
 
                     int opcaoLanche;
 
@@ -43,16 +39,9 @@ public class Main {
                             );
 
                             if (item != null) {
-                                pedido.adicionarItem(item);
+                                restaurante.adicionarItemPedido(pedido.getNumero(), item);
 
-                                mc.exibirMensagem(
-                                        String.format(
-                                                Locale.forLanguageTag("pt-BR"),
-                                                "Adicionado: %s - R$ %.2f",
-                                                item.getDescricao(),
-                                                item.getPreco()
-                                        )
-                                );
+                                mc.exibirItemAdicionado(item);
                             } else {
                                 mc.exibirMensagem("Opção de lanche inválida!");
                             }
@@ -61,56 +50,22 @@ public class Main {
                     } while (opcaoLanche != 0);
 
                     //Exibe valor do pedido
-                    double total = pedido.calcularTotal();
-                    mc.exibirMensagem(
-                            String.format(Locale.forLanguageTag("pt-BR"),
-                                    "Total do pedido: R$ %.2f", total)
-                            );
+                    mc.exibirTotalPedido(
+                            restaurante.calcularTotalPedido(pedido.getNumero())
+                    );
 
                     break;
 
                 case 2:
-                    mc.exibirMensagem("=== PEDIDOS DO DIA ===");
 
-                    if(restaurante.listarPedidos().isEmpty()){
-                        mc.exibirMensagem("Nenhum pedido registrado!");
-                    } else {
-                        for (Pedido p : restaurante.listarPedidos()) {
-
-                            String status = p.isCancelado() ? "CANCELADO" : "ATIVO";
-
-                            mc.exibirMensagem(
-                                    String.format(Locale.forLanguageTag("pt-BR"),
-                                            "Pedido #%d - %s - R$ %.2f - %s",
-                                            p.getNumero(),
-                                            p.getNomeCliente(),
-                                            p.calcularTotal(),
-                                            status
-                                    )
-                            );
-                        }
-                    }
+                    mc.exibirPedidosDoDia(restaurante.listarPedidos());
                     break;
 
                 case 3:
-                    mc.exibirMensagem("=== FECHAMENTO DO DIA ===");
-
-                    double faturamento = restaurante.calcularTotalDoDia();
-
-                    mc.exibirMensagem(
-                            String.format(Locale.forLanguageTag("pt-BR"),
-                                    "Faturamento total: R$ %.2f", faturamento)
+                    mc.exibirFechamentoDoDia(
+                            restaurante.calcularTotalDoDia(),
+                            restaurante.listarCombinacoesUnicas()
                     );
-
-                    mc.exibirMensagem(
-                            "Combinações únicas vendidas: "
-                                    + restaurante.contarCombinacoesUnicas()
-                    );
-
-                    for (String combinacao : restaurante.listarCombinacoesUnicas()) {
-                        mc.exibirMensagem("- " + combinacao);
-                    }
-
                     break;
 
                 case 4:
@@ -198,10 +153,8 @@ public class Main {
 
                         } while (opcaoLancheAdicionar != 0);
 
-                        double totalAdd = pedidoParaAdicionar.calcularTotal();
-                        mc.exibirMensagem(
-                                String.format(Locale.forLanguageTag("pt-BR"),
-                                        "Total do pedido: R$ %.2f", totalAdd)
+                        mc.exibirTotalPedido(
+                                restaurante.calcularTotalPedido(numeroPedidoAdicionar)
                         );
                     }
 

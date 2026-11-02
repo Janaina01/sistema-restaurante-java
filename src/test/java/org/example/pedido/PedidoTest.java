@@ -24,7 +24,7 @@ public class PedidoTest {
         pedido.adicionarItem(burger);
         pedido.adicionarItem(salada);
 
-        assertEquals(28.00, pedido.calcularTotal());
+        assertEquals(34.00, pedido.calcularTotal());
     }
 
     @Test

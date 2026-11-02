@@ -121,5 +121,14 @@ public class RestauranteFacade {
     public HashSet<String> listarCombinacoesUnicas() {
         return gerenciador.listarCombinacoesUnicas();
     }
+    public double calcularTotalPedido(int numero) {
+        Pedido pedido = gerenciador.buscarPedido(numero);
+
+        if (pedido == null) {
+            return 0;
+        }
+
+        return pedido.calcularTotal();
+    }
 
 }
