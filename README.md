@@ -1,15 +1,15 @@
 # Sistema de Restaurante 🍔
 
-Projeto desenvolvido em **Java** para simular o atendimento de um restaurante, desde a montagem de lanches e o registro de pedidos até o fechamento do dia. O sistema funciona pelo **console** e foi construído em três níveis, com evolução gradual das funcionalidades.
+Projeto desenvolvido em **Java** no curso SoulCode #ElasTech em parceria com o PagBank para simular o atendimento de um restaurante, desde a montagem de lanches e o registro de pedidos até o fechamento do dia. O sistema funciona pelo **console** e foi construído em três níveis, com evolução gradual das funcionalidades.
 
 ## Funcionalidades
 
-- **Cardápio:** X-Burger (R$ 16,00), X-Salada (R$ 18,00) e X-Bacon (R$ 22,00).
+- **Cardápio:** X-Burger (`R$ 16,00`), X-Salada (`R$ 18,00`) e X-Bacon (`R$ 22,00`).
 - **Pedidos:** cadastro com numeração automática, identificação do cliente, inclusão e remoção de itens e listagem dos pedidos.
 - **Personalização:** retirada de queijo, alface, tomate ou cebola sem alteração do preço do lanche.
-- **Adicionais:** cheddar (+ R$ 4,00) e bacon extra (+ R$ 6,00), inclusive combinados.
+- **Adicionais:** cheddar (+ `R$ 4,00`) e bacon extra (+ `R$ 6,00`), inclusive combinados.
 - **Cancelamento:** pedidos cancelados não entram no faturamento do dia.
-- **Fechamento:** cálculo do faturamento e apresentação da quantidade e das descrições das combinações únicas vendidas.
+- **Fechamento:** cálculo do faturamento e apresentação da quantidade e das descrições das combinações únicas vendidas. O programa encerra após mostrar o fechamento.
 - **Validações:** tratamento de nomes inválidos, valores negativos e entradas numéricas incorretas.
 
 ## Tecnologias e conceitos
@@ -69,6 +69,6 @@ Para executar os testes no IntelliJ, clique com o botão direito na pasta `src/t
 
 Na demonstração, serão apresentados o fluxo de um pedido, a organização dos pacotes, um padrão de projeto e a execução dos testes.
 
-## Escopo
+## Observações
 
 O projeto contempla os **níveis 1, 2 e 3** da atividade proposta. As funcionalidades de bônus não fazem parte desta versão.
