@@ -38,16 +38,7 @@ public class GerenciadorPedidos {
         return total;
     }
     public int contarCombinacoesUnicas() {
-        HashSet<String> combinacoes = new HashSet<>();
-        for (Pedido pedido : pedidos.values()){
-            if(!pedido.isCancelado()){
-                for (ItemCardapio item : pedido.getItens()){
-                    combinacoes.add(item.getDescricao());
-                }
-            }
-        }
-        return combinacoes.size();
-
+        return listarCombinacoesUnicas().size();
     }
 
     public HashSet<String> listarCombinacoesUnicas() {
