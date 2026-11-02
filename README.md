@@ -65,7 +65,7 @@ Para executar os testes no IntelliJ, clique com o botão direito na pasta `src/t
 
 ## Demonstração em vídeo
 
-**Link do vídeo:** _adicionar aqui após a gravação_.
+**Link do vídeo:** _https://www.youtube.com/watch?v=YkPDymMI3hM_.
 
 Na demonstração, serão apresentados o fluxo de um pedido, a organização dos pacotes, um padrão de projeto e a execução dos testes.
 
